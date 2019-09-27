@@ -35,4 +35,15 @@ interface DeferedNetwork extends Network {
 }
 ```
 
-This is perfect for using the same hook based design for `POST` requests.
+This is perfect for using the same hook based design for `POST` requests, as well as `GET` requests that we wish to delay.
+
+```js
+function MyComponent () {
+  const { executeResource } = useResource(resources => resources.postResource(), { defer: true })
+  
+  return (
+   <button onClick={() => executeResource()} />
+  )
+}
+```
+
